@@ -1,13 +1,21 @@
 <?php
 
-	class Pessoa{
+	class Pessoa implements JsonSerializable{
 		private $nome;
 		private $idade;
 		private $sexo;	
+
+		public function jsonSerialize(){
+			return [
+				'nome' => $this->nome,
+				'idade' => $this->idade,
+				'sexo' => $this->sexo
+			];
+		}
 	
 
 		public function setNome($newval){
-			$this->nome = $newval;
+			$this->nome = $newval; 
 		}
 
 		public function getNome(){
